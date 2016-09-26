@@ -39,13 +39,13 @@ var through2 = require('through2'),
  *     }))
  *     .pipe(gulp.dest('documentation'));
  * });
- * 
- * 
+ *
+ *
  * // documentation with JSON output, default filename API.md and custom Documentation instance
  * var documentation = require('gulp-documentation'),
  *     $documentation = require('documentation');
- *     
- * 
+ *
+ *
  * gulp.task('documentation-json', function () {
  *   gulp.src('./index.js')
  *     .pipe(documentation({
@@ -73,7 +73,7 @@ module.exports = function (options, documentation) {
     files.push(file);
     cb();
   }, function (cb) {
-    documentation(files.map(function(file) {
+    documentation.build(files.map(function(file) {
       return file.path;
     }), docOptions, function(err, comments) {
       formatter(comments, {}, function (err, output) {
